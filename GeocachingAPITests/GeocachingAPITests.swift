@@ -19,12 +19,6 @@ class GeocachingAPITests: XCTestCase {
         let client = Client.clientByLoadingBundleCredentials(bundlePath: testBundle.resourcePath, plistName:"GeocachingAPI")
         XCTAssertNotNil(client, "Should success to initialize")
         
-
-        client?.Login({ (authToken, tokenSecret) -> Void in
-            
-            XCTAssertNotNil(authToken)
-            XCTAssertNotNil(tokenSecret)
-        })
     }
     
     

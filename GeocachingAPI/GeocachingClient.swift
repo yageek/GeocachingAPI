@@ -48,7 +48,7 @@ public class Client {
     
     
     //!MARK - Log
-    public func Login(callback:(authToken:String?, tokenSecret:String? ) -> Void ){
+    public func LoginURL(callback:(loginURL:NSURL?) -> Void ){
 
         let request = self.oauthSerializer.URLRequest("GET", url: NSURL(string: GeocachingRequestTokenURL)!, parameters: ["oauth_callback" : "http://blog.yageek.net/"])
 
@@ -63,34 +63,52 @@ public class Client {
             do {
                 reply = try NSURLConnection.sendSynchronousRequest(request!, returningResponse: &response)
                 
-                if let raw_string = NSString(data: reply, encoding: NSUTF8StringEncoding){
+                let httpResponse = response as? NSHTTPURLResponse
+                
+                if httpResponse?.statusCode == 200 {
                     
-                    let nodes = raw_string.componentsSeparatedByString("&")
-                    
-                    for node in nodes {
-                        let token = node.componentsSeparatedByString("=")
+                    if let raw_string = NSString(data: reply, encoding: NSUTF8StringEncoding){
                         
-                        let key = token[0]
-                        let value = token[1]
+                        let nodes = raw_string.componentsSeparatedByString("&")
                         
-                        if key == "oauth_token" {
-                            accessToken = value
+                        for node in nodes {
+                            let token = node.componentsSeparatedByString("=")
+                            
+                            let key = token[0]
+                            let value = token[1]
+                            
+                            if key == "oauth_token" {
+                                accessToken = value
+                            }
+                            
+                            if key == "oauth_token_secret" {
+                                tokenSecret = value
+                            }
                         }
                         
-                        if key == "oauth_token_secret" {
-                            tokenSecret = value
-                        }
                     }
                     
                 }
-            } catch {
+                
+                } catch {
                 
             }
-
             
+            let loginURL:NSURL?
+            if let uwAcessToken = accessToken, let uwTokenSecret = tokenSecret {
+                self.oauthSerializer.accessToken = uwAcessToken
+                self.oauthSerializer.tokenSecret = uwTokenSecret
+                
+                let URLString = String(format: "%@?oauth_token=%@&force_login=true", arguments: [self.GeocachingAuthorizeURL, uwAcessToken])
+                loginURL = NSURL(string: URLString)
+            } else {
+                loginURL = nil
+            }
+    
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                callback(authToken: accessToken, tokenSecret: tokenSecret)
+                
+                callback(loginURL: loginURL)
             })
         })
 
