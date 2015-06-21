@@ -42,7 +42,6 @@
 		0B4037981B29ED2B0015465B /* GeocachingClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeocachingClient.swift; sourceTree = "<group>"; };
 		0B40379D1B29EFB00015465B /* GCOAUTH.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GCOAUTH.plist; sourceTree = "<group>"; };
 		0BD48E881B317669002BC35A /* PlistCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistCredentials.swift; sourceTree = "<group>"; };
-		0BD48E8A1B317C87002BC35A /* TestGeocaching.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TestGeocaching.playground; sourceTree = "<group>"; };
 		0BF520091B36B46D009F332C /* GeocachingAPI.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GeocachingAPI.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,7 +96,6 @@
 				0B4037981B29ED2B0015465B /* GeocachingClient.swift */,
 				0BD48E881B317669002BC35A /* PlistCredentials.swift */,
 				0B40379D1B29EFB00015465B /* GCOAUTH.plist */,
-				0BD48E8A1B317C87002BC35A /* TestGeocaching.playground */,
 			);
 			path = GeocachingAPI;
 			sourceTree = "<group>";
