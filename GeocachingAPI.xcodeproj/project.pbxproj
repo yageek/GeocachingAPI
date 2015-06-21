@@ -21,7 +21,6 @@
 		0B535D6E1B36C86400EE3D94 /* HMAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B535D6B1B36C86400EE3D94 /* HMAC.framework */; };
 		0B535D6F1B36C86400EE3D94 /* SwiftOAuth1a.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B535D6C1B36C86400EE3D94 /* SwiftOAuth1a.framework */; };
 		0BD48E891B317669002BC35A /* PlistCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD48E881B317669002BC35A /* PlistCredentials.swift */; };
-		0BF5200A1B36B46D009F332C /* GeocachingAPI.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0BF520091B36B46D009F332C /* GeocachingAPI.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +62,6 @@
 		0B535D6B1B36C86400EE3D94 /* HMAC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HMAC.framework; path = Carthage/Build/Mac/HMAC.framework; sourceTree = "<group>"; };
 		0B535D6C1B36C86400EE3D94 /* SwiftOAuth1a.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftOAuth1a.framework; path = Carthage/Build/Mac/SwiftOAuth1a.framework; sourceTree = "<group>"; };
 		0BD48E881B317669002BC35A /* PlistCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistCredentials.swift; sourceTree = "<group>"; };
-		0BF520091B36B46D009F332C /* GeocachingAPI.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GeocachingAPI.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +157,6 @@
 			children = (
 				0B40378E1B29ECA70015465B /* GeocachingAPITests.swift */,
 				0B40378C1B29ECA70015465B /* Supporting Files */,
-				0BF520091B36B46D009F332C /* GeocachingAPI.plist */,
 			);
 			path = GeocachingAPITests;
 			sourceTree = "<group>";
@@ -340,7 +337,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BF5200A1B36B46D009F332C /* GeocachingAPI.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
