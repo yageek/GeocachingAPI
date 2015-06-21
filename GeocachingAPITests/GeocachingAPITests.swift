@@ -20,7 +20,11 @@ class GeocachingAPITests: XCTestCase {
         XCTAssertNotNil(client, "Should success to initialize")
         
 
-        client?.Login()
+        client?.Login({ (authToken, tokenSecret) -> Void in
+            
+            XCTAssertNotNil(authToken)
+            XCTAssertNotNil(tokenSecret)
+        })
     }
     
     

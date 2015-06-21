@@ -13,8 +13,7 @@ import SwiftOAuth1a
 public class Client {
     
     /// The backed oauthClient
-    let consumerKey:String
-    let consumerSecret:String
+    let oauthSerializer:SwiftOAuth1a.Serializer
     
     
     let GeocachingRequestTokenURL = "https://staging.geocaching.com/OAuth/oauth.ashx"
@@ -30,8 +29,7 @@ public class Client {
     
     */
     public init(consumerKey:String, consumerSecret:String){
-        self.consumerKey = consumerKey
-        self.consumerSecret = consumerSecret
+        self.oauthSerializer = Serializer(consumerKey: consumerKey, consumerSecret: consumerSecret)
     }
     
     /**
@@ -50,19 +48,58 @@ public class Client {
     
     
     //!MARK - Log
-    public func Login(){
-        
-        let oauthSerializer = SwiftOAuth1a.Serializer(consumerKey: self.consumerKey, consumerSecret: self.consumerSecret)
+    public func Login(callback:(authToken:String?, tokenSecret:String? ) -> Void ){
 
-        let request = oauthSerializer.URLRequest("GET", url: NSURL(string: GeocachingRequestTokenURL)!, parameters: ["oauth_callback" : "http://blog.yageek.net/"])
+        let request = self.oauthSerializer.URLRequest("GET", url: NSURL(string: GeocachingRequestTokenURL)!, parameters: ["oauth_callback" : "http://blog.yageek.net/"])
+
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), { () -> Void in
+
+            var response:NSURLResponse? = nil
+            var reply:NSData
+            
+            var accessToken:String? = nil
+            var tokenSecret:String? = nil
+            
+            do {
+                reply = try NSURLConnection.sendSynchronousRequest(request!, returningResponse: &response)
+                
+                if let raw_string = NSString(data: reply, encoding: NSUTF8StringEncoding){
+                    
+                    let nodes = raw_string.componentsSeparatedByString("&")
+                    
+                    for node in nodes {
+                        let token = node.componentsSeparatedByString("=")
+                        
+                        let key = token[0]
+                        let value = token[1]
+                        
+                        if key == "oauth_token" {
+                            accessToken = value
+                        }
+                        
+                        if key == "oauth_token_secret" {
+                            tokenSecret = value
+                        }
+                    }
+                    
+                }
+            } catch {
+                
+            }
+
+            
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                callback(authToken: accessToken, tokenSecret: tokenSecret)
+            })
+        })
+
         
-        var response:NSURLResponse?
-        let data = try! NSURLConnection.sendSynchronousRequest(request!, returningResponse: &response)
+    
+    
         
-        
-        if let answer = NSString(data: data, encoding: NSUTF8StringEncoding){
-            print("Answer:\(answer)")
-        }
+            
+    
         
     
 
