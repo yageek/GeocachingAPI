@@ -16,8 +16,11 @@ class GeocachingAPITests: XCTestCase {
         
         let testBundle = NSBundle(forClass: GeocachingAPITests.self)
         
-        let client = Client.clientByLoadingBundleCredentials(bundlePath: testBundle.resourcePath)
+        let client = Client.clientByLoadingBundleCredentials(bundlePath: testBundle.resourcePath, plistName:"GeocachingAPI")
         XCTAssertNotNil(client, "Should success to initialize")
+        
+
+        client?.Login()
     }
     
     

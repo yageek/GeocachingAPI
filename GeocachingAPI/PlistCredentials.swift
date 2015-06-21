@@ -29,7 +29,7 @@ public struct PlistCredentials {
         
         if let plist = NSDictionary(contentsOfURL: plistURL) {
             if let consumerKey = plist[PlistCredentials.ConsumerKeyPlistKey] as? String, consumerSecret = plist[PlistCredentials.ConsumerSecretPlistKey] as? String {
-                return (consumerKey, consumerSecret)
+                return (ConsumerKey: consumerKey, ConsumerSecret: consumerSecret)
             }
             return nil
         }
@@ -57,13 +57,13 @@ public struct PlistCredentials {
         
         let plistName = plist ?? PlistCredentials.DefaultPlistName
         
-        println("Load credential in \(plistName).plist from bundle: \(bundle?.resourcePath)")
+        print("Load credential in \(plistName).plist from bundle: \(bundle?.resourcePath)")
         
         if let plistURL = bundle?.URLForResource(plistName, withExtension: "plist"){
             
             if let (key, secret) = PlistCredentials.keysForPlist(url: plistURL){
-                ConsumerSecret = key
-                ConsumerKey = secret
+                ConsumerSecret = secret
+                ConsumerKey = key
             } else {
                 return nil
             }

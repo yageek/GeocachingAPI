@@ -1,1 +1,4 @@
-github "dongri/OAuthSwift" "v0.3.6"
+github "yageek/Base32" "63c1d546daed0b99a81d54c4ad821d418e2e7005"
+github "jspahrsummers/xcconfigs" "b09b4b63235b760a3a48a8dd19c0415aaaa8f269"
+github "yageek/HMAC" "2eac5693ddd945b558287b4868a89333a5741c5a"
+github "yageek/SwiftOAuth1a" "c1c5cbd032aea78f68b23d28f9f894f13a8964f5"
