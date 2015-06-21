@@ -20,6 +20,8 @@
 		0B535D6D1B36C86400EE3D94 /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B535D6A1B36C86400EE3D94 /* Base32.framework */; };
 		0B535D6E1B36C86400EE3D94 /* HMAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B535D6B1B36C86400EE3D94 /* HMAC.framework */; };
 		0B535D6F1B36C86400EE3D94 /* SwiftOAuth1a.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B535D6C1B36C86400EE3D94 /* SwiftOAuth1a.framework */; };
+		0B535D701B36CB4F00EE3D94 /* GeocachingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4037981B29ED2B0015465B /* GeocachingClient.swift */; };
+		0B535D711B36CB5100EE3D94 /* PlistCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD48E881B317669002BC35A /* PlistCredentials.swift */; };
 		0BD48E891B317669002BC35A /* PlistCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD48E881B317669002BC35A /* PlistCredentials.swift */; };
 /* End PBXBuildFile section */
 
@@ -378,6 +380,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B535D701B36CB4F00EE3D94 /* GeocachingClient.swift in Sources */,
+				0B535D711B36CB5100EE3D94 /* PlistCredentials.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
