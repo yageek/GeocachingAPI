@@ -15,6 +15,12 @@
 		0B535D2C1B36C37900EE3D94 /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B535D291B36C37900EE3D94 /* Base32.framework */; };
 		0B535D2D1B36C37900EE3D94 /* HMAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B535D2A1B36C37900EE3D94 /* HMAC.framework */; };
 		0B535D2E1B36C37900EE3D94 /* SwiftOAuth1a.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B535D2B1B36C37900EE3D94 /* SwiftOAuth1a.framework */; };
+		0B535D531B36C80A00EE3D94 /* GeocachingAPI-OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B535D521B36C80A00EE3D94 /* GeocachingAPI-OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0B535D5A1B36C80A00EE3D94 /* GeocachingAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B535D501B36C80A00EE3D94 /* GeocachingAPI.framework */; };
+		0B535D5F1B36C80A00EE3D94 /* GeocachingAPI_OSXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B535D5E1B36C80A00EE3D94 /* GeocachingAPI_OSXTests.m */; };
+		0B535D6D1B36C86400EE3D94 /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B535D6A1B36C86400EE3D94 /* Base32.framework */; };
+		0B535D6E1B36C86400EE3D94 /* HMAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B535D6B1B36C86400EE3D94 /* HMAC.framework */; };
+		0B535D6F1B36C86400EE3D94 /* SwiftOAuth1a.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B535D6C1B36C86400EE3D94 /* SwiftOAuth1a.framework */; };
 		0BD48E891B317669002BC35A /* PlistCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD48E881B317669002BC35A /* PlistCredentials.swift */; };
 		0BF5200A1B36B46D009F332C /* GeocachingAPI.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0BF520091B36B46D009F332C /* GeocachingAPI.plist */; };
 /* End PBXBuildFile section */
@@ -26,6 +32,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 0B40377B1B29ECA70015465B;
 			remoteInfo = GeocachingAPI;
+		};
+		0B535D5B1B36C80A00EE3D94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B4037731B29ECA70015465B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B535D4F1B36C80A00EE3D94;
+			remoteInfo = "GeocachingAPI-OSX";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -41,6 +54,15 @@
 		0B535D291B36C37900EE3D94 /* Base32.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Base32.framework; path = Carthage/Build/iOS/Base32.framework; sourceTree = "<group>"; };
 		0B535D2A1B36C37900EE3D94 /* HMAC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HMAC.framework; path = Carthage/Build/iOS/HMAC.framework; sourceTree = "<group>"; };
 		0B535D2B1B36C37900EE3D94 /* SwiftOAuth1a.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftOAuth1a.framework; path = Carthage/Build/iOS/SwiftOAuth1a.framework; sourceTree = "<group>"; };
+		0B535D501B36C80A00EE3D94 /* GeocachingAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GeocachingAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B535D521B36C80A00EE3D94 /* GeocachingAPI-OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GeocachingAPI-OSX.h"; sourceTree = "<group>"; };
+		0B535D541B36C80A00EE3D94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B535D591B36C80A00EE3D94 /* GeocachingAPI.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeocachingAPI.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B535D5E1B36C80A00EE3D94 /* GeocachingAPI_OSXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeocachingAPI_OSXTests.m; sourceTree = "<group>"; };
+		0B535D601B36C80A00EE3D94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B535D6A1B36C86400EE3D94 /* Base32.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Base32.framework; path = Carthage/Build/Mac/Base32.framework; sourceTree = "<group>"; };
+		0B535D6B1B36C86400EE3D94 /* HMAC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HMAC.framework; path = Carthage/Build/Mac/HMAC.framework; sourceTree = "<group>"; };
+		0B535D6C1B36C86400EE3D94 /* SwiftOAuth1a.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftOAuth1a.framework; path = Carthage/Build/Mac/SwiftOAuth1a.framework; sourceTree = "<group>"; };
 		0BD48E881B317669002BC35A /* PlistCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistCredentials.swift; sourceTree = "<group>"; };
 		0BF520091B36B46D009F332C /* GeocachingAPI.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GeocachingAPI.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,17 +86,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0B535D4C1B36C80A00EE3D94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B535D6D1B36C86400EE3D94 /* Base32.framework in Frameworks */,
+				0B535D6E1B36C86400EE3D94 /* HMAC.framework in Frameworks */,
+				0B535D6F1B36C86400EE3D94 /* SwiftOAuth1a.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B535D561B36C80A00EE3D94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B535D5A1B36C80A00EE3D94 /* GeocachingAPI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		0B4037721B29ECA70015465B = {
 			isa = PBXGroup;
 			children = (
+				0B535D6A1B36C86400EE3D94 /* Base32.framework */,
+				0B535D6B1B36C86400EE3D94 /* HMAC.framework */,
+				0B535D6C1B36C86400EE3D94 /* SwiftOAuth1a.framework */,
 				0B535D291B36C37900EE3D94 /* Base32.framework */,
 				0B535D2A1B36C37900EE3D94 /* HMAC.framework */,
 				0B535D2B1B36C37900EE3D94 /* SwiftOAuth1a.framework */,
 				0B40377E1B29ECA70015465B /* GeocachingAPI */,
 				0B40378B1B29ECA70015465B /* GeocachingAPITests */,
+				0B535D511B36C80A00EE3D94 /* GeocachingAPI-OSX */,
+				0B535D5D1B36C80A00EE3D94 /* GeocachingAPI-OSXTests */,
 				0B40377D1B29ECA70015465B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -84,6 +129,8 @@
 			children = (
 				0B40377C1B29ECA70015465B /* GeocachingAPI.framework */,
 				0B4037871B29ECA70015465B /* GeocachingAPITests.xctest */,
+				0B535D501B36C80A00EE3D94 /* GeocachingAPI.framework */,
+				0B535D591B36C80A00EE3D94 /* GeocachingAPI.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,6 +173,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0B535D511B36C80A00EE3D94 /* GeocachingAPI-OSX */ = {
+			isa = PBXGroup;
+			children = (
+				0B535D521B36C80A00EE3D94 /* GeocachingAPI-OSX.h */,
+				0B535D541B36C80A00EE3D94 /* Info.plist */,
+			);
+			path = "GeocachingAPI-OSX";
+			sourceTree = "<group>";
+		};
+		0B535D5D1B36C80A00EE3D94 /* GeocachingAPI-OSXTests */ = {
+			isa = PBXGroup;
+			children = (
+				0B535D5E1B36C80A00EE3D94 /* GeocachingAPI_OSXTests.m */,
+				0B535D601B36C80A00EE3D94 /* Info.plist */,
+			);
+			path = "GeocachingAPI-OSXTests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -134,6 +199,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B4037821B29ECA70015465B /* GeocachingAPI.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B535D4D1B36C80A00EE3D94 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B535D531B36C80A00EE3D94 /* GeocachingAPI-OSX.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +249,42 @@
 			productReference = 0B4037871B29ECA70015465B /* GeocachingAPITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		0B535D4F1B36C80A00EE3D94 /* GeocachingAPI-OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B535D651B36C80A00EE3D94 /* Build configuration list for PBXNativeTarget "GeocachingAPI-OSX" */;
+			buildPhases = (
+				0B535D4B1B36C80A00EE3D94 /* Sources */,
+				0B535D4C1B36C80A00EE3D94 /* Frameworks */,
+				0B535D4D1B36C80A00EE3D94 /* Headers */,
+				0B535D4E1B36C80A00EE3D94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GeocachingAPI-OSX";
+			productName = "GeocachingAPI-OSX";
+			productReference = 0B535D501B36C80A00EE3D94 /* GeocachingAPI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0B535D581B36C80A00EE3D94 /* GeocachingAPI-OSXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B535D661B36C80A00EE3D94 /* Build configuration list for PBXNativeTarget "GeocachingAPI-OSXTests" */;
+			buildPhases = (
+				0B535D551B36C80A00EE3D94 /* Sources */,
+				0B535D561B36C80A00EE3D94 /* Frameworks */,
+				0B535D571B36C80A00EE3D94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0B535D5C1B36C80A00EE3D94 /* PBXTargetDependency */,
+			);
+			name = "GeocachingAPI-OSXTests";
+			productName = "GeocachingAPI-OSXTests";
+			productReference = 0B535D591B36C80A00EE3D94 /* GeocachingAPI.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -191,6 +300,12 @@
 					};
 					0B4037861B29ECA70015465B = {
 						CreatedOnToolsVersion = 6.3.2;
+					};
+					0B535D4F1B36C80A00EE3D94 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					0B535D581B36C80A00EE3D94 = {
+						CreatedOnToolsVersion = 7.0;
 					};
 				};
 			};
@@ -208,6 +323,8 @@
 			targets = (
 				0B40377B1B29ECA70015465B /* GeocachingAPI */,
 				0B4037861B29ECA70015465B /* GeocachingAPITests */,
+				0B535D4F1B36C80A00EE3D94 /* GeocachingAPI-OSX */,
+				0B535D581B36C80A00EE3D94 /* GeocachingAPI-OSXTests */,
 			);
 		};
 /* End PBXProject section */
@@ -226,6 +343,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BF5200A1B36B46D009F332C /* GeocachingAPI.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B535D4E1B36C80A00EE3D94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B535D571B36C80A00EE3D94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +380,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0B535D4B1B36C80A00EE3D94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B535D551B36C80A00EE3D94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B535D5F1B36C80A00EE3D94 /* GeocachingAPI_OSXTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -256,6 +402,11 @@
 			isa = PBXTargetDependency;
 			target = 0B40377B1B29ECA70015465B /* GeocachingAPI */;
 			targetProxy = 0B4037891B29ECA70015465B /* PBXContainerItemProxy */;
+		};
+		0B535D5C1B36C80A00EE3D94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B535D4F1B36C80A00EE3D94 /* GeocachingAPI-OSX */;
+			targetProxy = 0B535D5B1B36C80A00EE3D94 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -420,6 +571,84 @@
 			};
 			name = Release;
 		};
+		0B535D611B36C80A00EE3D94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "GeocachingAPI-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = net.yageek.GeocachingAPI;
+				PRODUCT_NAME = GeocachingAPI;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		0B535D621B36C80A00EE3D94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "GeocachingAPI-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = net.yageek.GeocachingAPI;
+				PRODUCT_NAME = GeocachingAPI;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		0B535D631B36C80A00EE3D94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				INFOPLIST_FILE = "GeocachingAPI-OSXTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = net.yageek.GeocachingAPI;
+				PRODUCT_NAME = GeocachingAPI;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		0B535D641B36C80A00EE3D94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "GeocachingAPI-OSXTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = net.yageek.GeocachingAPI;
+				PRODUCT_NAME = GeocachingAPI;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -449,6 +678,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		0B535D651B36C80A00EE3D94 /* Build configuration list for PBXNativeTarget "GeocachingAPI-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B535D611B36C80A00EE3D94 /* Debug */,
+				0B535D621B36C80A00EE3D94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0B535D661B36C80A00EE3D94 /* Build configuration list for PBXNativeTarget "GeocachingAPI-OSXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B535D631B36C80A00EE3D94 /* Debug */,
+				0B535D641B36C80A00EE3D94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
