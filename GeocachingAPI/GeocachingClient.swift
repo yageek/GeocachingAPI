@@ -16,8 +16,7 @@ public class Client {
     let oauthSerializer:SwiftOAuth1a.Serializer
     
     
-    let GeocachingRequestTokenURL = "https://staging.geocaching.com/OAuth/oauth.ashx"
-    let GeocachingAuthorizeURL = "https://staging.geocaching.com/OAuth/Authorize.aspx"
+    let GeocachingRequestOAuthURL = "https://staging.geocaching.com/OAuth/oauth.ashx"
 
     //!MARK: Initialization
     
@@ -50,7 +49,7 @@ public class Client {
     //!MARK - Log
     public func LoginURL(callback:(loginURL:NSURL?) -> Void ){
 
-        let request = self.oauthSerializer.URLRequest("GET", url: NSURL(string: GeocachingRequestTokenURL)!, parameters: ["oauth_callback" : "http://blog.yageek.net/"])
+        let request = self.oauthSerializer.URLRequest("GET", url: NSURL(string: GeocachingRequestOAuthURL)!, parameters: ["oauth_callback" : "http://blog.yageek.net/"])
 
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), { () -> Void in
 
@@ -99,7 +98,7 @@ public class Client {
                 self.oauthSerializer.accessToken = uwAcessToken
                 self.oauthSerializer.tokenSecret = uwTokenSecret
                 
-                let URLString = String(format: "%@?oauth_token=%@&force_login=true", arguments: [self.GeocachingAuthorizeURL, uwAcessToken])
+                let URLString = String(format: "%@?oauth_token=%@&force_login=true", arguments: [self.GeocachingRequestOAuthURL, uwAcessToken])
                 loginURL = NSURL(string: URLString)
             } else {
                 loginURL = nil
