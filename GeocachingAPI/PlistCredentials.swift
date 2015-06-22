@@ -14,9 +14,11 @@ public struct PlistCredentials {
     static let DefaultPlistName = "GCOAUTH"
     static let ConsumerKeyPlistKey = "ConsumerKey"
     static let ConsumerSecretPlistKey = "ConsumerSecret"
+    static let CallbackURLPlistKey = "Callback"
     
     let ConsumerKey:String
     let ConsumerSecret:String
+    let CallbackURL:NSURL
     
     /**
     Check whether the plist at the given URL contains the required elements
@@ -25,11 +27,19 @@ public struct PlistCredentials {
     
     :returns: A tuple of String with keys (ConsumerKey, ConsumerSecret)
     */
-    static func keysForPlist(url plistURL:NSURL) -> (ConsumerKey: String, ConsumerSecret: String)? {
+    static func keysForPlist(url plistURL:NSURL) -> (ConsumerKey: String, ConsumerSecret: String, CallbackURL:NSURL)? {
         
         if let plist = NSDictionary(contentsOfURL: plistURL) {
-            if let consumerKey = plist[PlistCredentials.ConsumerKeyPlistKey] as? String, consumerSecret = plist[PlistCredentials.ConsumerSecretPlistKey] as? String {
-                return (ConsumerKey: consumerKey, ConsumerSecret: consumerSecret)
+            if let consumerKey = plist[PlistCredentials.ConsumerKeyPlistKey] as? String, consumerSecret = plist[PlistCredentials.ConsumerSecretPlistKey] as? String, let  callbackURL = plist[PlistCredentials.CallbackURLPlistKey] as? String {
+                
+                if let url = NSURL(string: callbackURL)
+                {
+                    return (ConsumerKey: consumerKey, ConsumerSecret: consumerSecret, CallbackURL: url)
+                    
+                } else{
+                    return nil
+                }
+
             }
             return nil
         }
@@ -61,9 +71,10 @@ public struct PlistCredentials {
         
         if let plistURL = bundle?.URLForResource(plistName, withExtension: "plist"){
             
-            if let (key, secret) = PlistCredentials.keysForPlist(url: plistURL){
+            if let (key, secret, url) = PlistCredentials.keysForPlist(url: plistURL){
                 ConsumerSecret = secret
                 ConsumerKey = key
+                CallbackURL = url
             } else {
                 return nil
             }

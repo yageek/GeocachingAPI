@@ -14,6 +14,7 @@ public class Client {
     
     /// The backed oauthClient
     let oauthSerializer:SwiftOAuth1a.Serializer
+    let callbackURL:NSURL
     
     
     let GeocachingRequestOAuthURL = "https://staging.geocaching.com/OAuth/oauth.ashx"
@@ -27,8 +28,9 @@ public class Client {
     :param: consumerSecret The consumer secret
     
     */
-    public init(consumerKey:String, consumerSecret:String){
+    public init(consumerKey:String, consumerSecret:String, callbackURL:NSURL){
         self.oauthSerializer = Serializer(consumerKey: consumerKey, consumerSecret: consumerSecret)
+        self.callbackURL = callbackURL
     }
     
     /**
@@ -42,14 +44,17 @@ public class Client {
         
         guard let credentials = PlistCredentials(bundlePath: path, plistName: plistName)  else { return nil}
 
-        return Client(consumerKey: credentials.ConsumerKey, consumerSecret: credentials.ConsumerSecret)
+        return Client(consumerKey: credentials.ConsumerKey, consumerSecret: credentials.ConsumerSecret, callbackURL: credentials.CallbackURL)
     }
     
+    /**
+    Get LoginURL
+    :param: callback The callback returning the NSURL to log
+    */
     
-    //!MARK - Log
     public func LoginURL(callback:(loginURL:NSURL?) -> Void ){
-
-        let request = self.oauthSerializer.URLRequest("GET", url: NSURL(string: GeocachingRequestOAuthURL)!, parameters: ["oauth_callback" : "http://blog.yageek.net/"])
+        
+        let request = self.oauthSerializer.URLRequest("GET", url: NSURL(string: GeocachingRequestOAuthURL)!, parameters: ["oauth_callback" :  callbackURL.absoluteString])
 
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), { () -> Void in
 
@@ -90,7 +95,7 @@ public class Client {
                 }
                 
                 } catch {
-                
+                print("An error occured:\(error)")
             }
             
             let loginURL:NSURL?
@@ -104,23 +109,15 @@ public class Client {
                 loginURL = nil
             }
     
-            
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 
                 callback(loginURL: loginURL)
             })
         })
-
+    }
+    
+    public func isOAuthCallbackURL(url:NSURL){
         
-    
-    
-        
-            
-    
-        
-    
-
-
     }
     
 }
