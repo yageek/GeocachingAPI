@@ -119,25 +119,18 @@ public class Client {
         })
     }
 
-    public func isValidCallback(url:NSURL) -> Bool {
+    public func readTokenFromCallback(url:NSURL) -> Bool {
         
        let components = NSURLComponents(URL: url, resolvingAgainstBaseURL: true)
        
         if let scheme = components?.scheme, host = components?.host {
             
-            let returnedURLString = NSURL(scheme: scheme, host: host, path: "")
+            let returnedURLString = NSURL(string: String(format: "%@://%@", arguments: [scheme, host]))
             return returnedURLString == self.callbackURL
         }
+        
 
-        return false
-    }
-    
-    
-    public func readTokenFromCallback(url:NSURL) throws {
-
-        let components = NSURLComponents(URL: url, resolvingAgainstBaseURL: true)
-
-        guard let items = components?.queryItems else { throw GeocachingAPIError.InvalidCallbackURL }
+        guard let items = components?.queryItems else { return false }
         var token:String? = nil
         
         for item in items {
@@ -148,12 +141,18 @@ public class Client {
             }
         }
         
-        guard token != nil else { throw GeocachingAPIError.InvalidCallbackURL }
+        guard token != nil else { return false }
         
         self.oauthSerializer.accessToken = token
         
-        }
-    
+        return true
+        
     }
+
+    
+
+    }
+    
+    
 
 
