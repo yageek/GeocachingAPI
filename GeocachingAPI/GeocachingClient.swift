@@ -44,7 +44,8 @@ public class Client {
     :param: plistName The name of the plist. Default "GCOAUTH"
     :returns: A Client instance
     */
-    public class func sharedInstance(bundlePath path:String? = nil, plistName:String? = nil) -> Client?{
+
+    public class func clientByLoadingBundleCredentials(bundlePath path:String? = nil, plistName:String? = nil) -> Client?{
         
         guard let credentials = PlistCredentials(bundlePath: path, plistName: plistName)  else { return nil}
 
