@@ -12,9 +12,13 @@ import SwiftOAuth1a
 // MARK: Client
 public class Client {
     
+    public enum GeocachingAPIError : ErrorType {
+        case InvalidCallbackURL
+    }
+    
     /// The backed oauthClient
     let oauthSerializer:SwiftOAuth1a.Serializer
-    let callbackURL:NSURL
+    public let callbackURL:NSURL
     
     
     let GeocachingRequestOAuthURL = "https://staging.geocaching.com/OAuth/oauth.ashx"
@@ -40,7 +44,7 @@ public class Client {
     :param: plistName The name of the plist. Default "GCOAUTH"
     :returns: A Client instance
     */
-    public class func clientByLoadingBundleCredentials(bundlePath path:String? = nil, plistName:String? = nil) -> Client?{
+    public class func sharedInstance(bundlePath path:String? = nil, plistName:String? = nil) -> Client?{
         
         guard let credentials = PlistCredentials(bundlePath: path, plistName: plistName)  else { return nil}
 
@@ -51,7 +55,6 @@ public class Client {
     Get LoginURL
     :param: callback The callback returning the NSURL to log
     */
-    
     public func LoginURL(callback:(loginURL:NSURL?) -> Void ){
         
         let request = self.oauthSerializer.URLRequest("GET", url: NSURL(string: GeocachingRequestOAuthURL)!, parameters: ["oauth_callback" :  callbackURL.absoluteString])
@@ -108,16 +111,48 @@ public class Client {
             } else {
                 loginURL = nil
             }
-    
+            
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                
                 callback(loginURL: loginURL)
             })
         })
     }
-    
-    public func isOAuthCallbackURL(url:NSURL){
+
+    public func isValidCallback(url:NSURL) -> Bool {
         
+       let components = NSURLComponents(URL: url, resolvingAgainstBaseURL: true)
+       
+        if let scheme = components?.scheme, host = components?.host {
+            
+            let returnedURLString = NSURL(scheme: scheme, host: host, path: "")
+            return returnedURLString == self.callbackURL
+        }
+
+        return false
     }
     
-}
+    
+    public func readTokenFromCallback(url:NSURL) throws {
+
+        let components = NSURLComponents(URL: url, resolvingAgainstBaseURL: true)
+
+        guard let items = components?.queryItems else { throw GeocachingAPIError.InvalidCallbackURL }
+        var token:String? = nil
+        
+        for item in items {
+            
+            if item.name == "oauth_token" {
+                token = item.value
+                break
+            }
+        }
+        
+        guard token != nil else { throw GeocachingAPIError.InvalidCallbackURL }
+        
+        self.oauthSerializer.accessToken = token
+        
+        }
+    
+    }
+
+
