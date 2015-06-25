@@ -10,7 +10,8 @@ import Foundation
 import SwiftOAuth1a
 
 // MARK: Client
-public class Client {
+public class APIClient {
+    
     
     public enum GeocachingAPIError : ErrorType {
         case InvalidCallbackURL
@@ -20,8 +21,9 @@ public class Client {
     let oauthSerializer:SwiftOAuth1a.Serializer
     public let callbackURL:NSURL
     
-    
+    let api = GeocachingAPI.API()
     let GeocachingRequestOAuthURL = "https://staging.geocaching.com/OAuth/oauth.ashx"
+    let GeocachingAPIBaseURL = NSURL(string: "https://staging.api.groundspeak.com/Live/V6Beta/geocaching.svc")!
 
     //!MARK: Initialization
     
@@ -45,11 +47,11 @@ public class Client {
     :returns: A Client instance
     */
 
-    public class func clientByLoadingBundleCredentials(bundlePath path:String? = nil, plistName:String? = nil) -> Client?{
+    public class func clientByLoadingBundleCredentials(bundlePath path:String? = nil, plistName:String? = nil) -> APIClient?{
         
         guard let credentials = PlistCredentials(bundlePath: path, plistName: plistName)  else { return nil}
 
-        return Client(consumerKey: credentials.ConsumerKey, consumerSecret: credentials.ConsumerSecret, callbackURL: credentials.CallbackURL)
+        return APIClient(consumerKey: credentials.ConsumerKey, consumerSecret: credentials.ConsumerSecret, callbackURL: credentials.CallbackURL)
     }
     
     /**
@@ -58,6 +60,7 @@ public class Client {
     */
     public func LoginURL(callback:(loginURL:NSURL?) -> Void ){
         
+        //Start requeting
         let request = self.oauthSerializer.URLRequest("GET", url: NSURL(string: GeocachingRequestOAuthURL)!, parameters: ["oauth_callback" :  callbackURL.absoluteString])
 
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), { () -> Void in
@@ -118,7 +121,12 @@ public class Client {
             })
         })
     }
-
+    /**
+    Read the token provided by the callback
+    
+    :param: url The url of the callback
+    :returns: true if succeed to read the content
+    */
     public func readTokenFromCallback(url:NSURL) -> Bool {
         
        let components = NSURLComponents(URL: url, resolvingAgainstBaseURL: true)
@@ -148,10 +156,13 @@ public class Client {
         return true
         
     }
-
     
-
-    }
+    
+    
+    
+    
+    
+}
     
     
 

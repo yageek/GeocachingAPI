@@ -2,15 +2,22 @@
 //  GeocachingAPITests.swift
 //  GeocachingAPITests
 //
-//  Created by Yannick Heinrich on 11/06/15.
-//  Copyright (c) 2015 yageek. All rights reserved.
+//  Created by Yannick Heinrich on 25/06/15.
+//  Copyright © 2015 yageek. All rights reserved.
 //
 
-import UIKit
 import XCTest
-import GeocachingAPI
+@testable import GeocachingAPI
 
 class GeocachingAPITests: XCTestCase {
 
+    
+    func testPlistCredentialLoading() {
+        
+        let bundlePath = NSBundle(forClass: GeocachingAPITests.self).bundlePath
+        
+        let client = GeocachingAPI.APIClient.clientByLoadingBundleCredentials(bundlePath: bundlePath)
+        XCTAssertNotNil(client)
+    }
     
 }

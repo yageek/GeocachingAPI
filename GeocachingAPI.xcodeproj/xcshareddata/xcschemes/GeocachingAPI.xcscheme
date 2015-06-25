@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0630"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0B4037861B29ECA70015465B"
+               BlueprintIdentifier = "0B7F30531B3C65E5000DDEB6"
                BuildableName = "GeocachingAPITests.xctest"
                BlueprintName = "GeocachingAPITests"
                ReferencedContainer = "container:GeocachingAPI.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0B4037861B29ECA70015465B"
+               BlueprintIdentifier = "0B7F30531B3C65E5000DDEB6"
                BuildableName = "GeocachingAPITests.xctest"
                BlueprintName = "GeocachingAPITests"
                ReferencedContainer = "container:GeocachingAPI.xcodeproj">

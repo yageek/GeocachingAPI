@@ -9,6 +9,7 @@
 import Foundation
 
 // MARK: Plist Credential
+
 public struct PlistCredentials {
     
     static let DefaultPlistName = "GCOAUTH"
@@ -62,6 +63,7 @@ public struct PlistCredentials {
             
             bundle = NSBundle(path: bundlePath)
         } else {
+
             bundle = NSBundle.mainBundle()
         }
         
