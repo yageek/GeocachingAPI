@@ -10,7 +10,6 @@ import XCTest
 @testable import GeocachingAPI
 
 class GeocachingAPITests: XCTestCase {
-
     
     func testPlistCredentialLoading() {
         
