@@ -197,8 +197,8 @@
 			buildPhases = (
 				0B7F30501B3C65E5000DDEB6 /* Sources */,
 				0B7F30511B3C65E5000DDEB6 /* Frameworks */,
-				0B7F30521B3C65E5000DDEB6 /* Resources */,
 				0B7F308C1B3CA6E9000DDEB6 /* CopyFiles */,
+				0B7F30521B3C65E5000DDEB6 /* Resources */,
 			);
 			buildRules = (
 			);
