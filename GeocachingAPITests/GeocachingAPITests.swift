@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import GeocachingAPI
+import GeocachingAPI
 
 class GeocachingAPITests: XCTestCase {
     
