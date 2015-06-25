@@ -1,2 +1,5 @@
 Carthage/
 
+.DS_Store
+GeocachingAPI.xcodeproj/project.xcworkspace
+GeocachingAPI.xcodeproj/xcuserdata

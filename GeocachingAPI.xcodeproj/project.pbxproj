@@ -18,9 +18,6 @@
 		0B7F308E1B3CA6FA000DDEB6 /* Base32.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B7F307C1B3CA436000DDEB6 /* Base32.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0B7F308F1B3CA6FA000DDEB6 /* HMAC.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B7F307D1B3CA436000DDEB6 /* HMAC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0B7F30901B3CA6FA000DDEB6 /* SwiftOAuth1a.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B7F307E1B3CA436000DDEB6 /* SwiftOAuth1a.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0B7F30921B3CA71F000DDEB6 /* Base32.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B7F307C1B3CA436000DDEB6 /* Base32.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0B7F30931B3CA71F000DDEB6 /* HMAC.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B7F307D1B3CA436000DDEB6 /* HMAC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0B7F30941B3CA71F000DDEB6 /* SwiftOAuth1a.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B7F307E1B3CA436000DDEB6 /* SwiftOAuth1a.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0B869BAD1B39C682009ACEC0 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B869BAC1B39C682009ACEC0 /* APIEndpoint.swift */; };
 		0BD48E891B317669002BC35A /* PlistCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD48E881B317669002BC35A /* PlistCredentials.swift */; };
 /* End PBXBuildFile section */
@@ -45,18 +42,6 @@
 				0B7F308E1B3CA6FA000DDEB6 /* Base32.framework in CopyFiles */,
 				0B7F308F1B3CA6FA000DDEB6 /* HMAC.framework in CopyFiles */,
 				0B7F30901B3CA6FA000DDEB6 /* SwiftOAuth1a.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0B7F30911B3CA715000DDEB6 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				0B7F30921B3CA71F000DDEB6 /* Base32.framework in CopyFiles */,
-				0B7F30931B3CA71F000DDEB6 /* HMAC.framework in CopyFiles */,
-				0B7F30941B3CA71F000DDEB6 /* SwiftOAuth1a.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,7 +165,6 @@
 				0B4037771B29ECA70015465B /* Sources */,
 				0B4037781B29ECA70015465B /* Frameworks */,
 				0B4037791B29ECA70015465B /* Headers */,
-				0B7F30911B3CA715000DDEB6 /* CopyFiles */,
 			);
 			buildRules = (
 			);
