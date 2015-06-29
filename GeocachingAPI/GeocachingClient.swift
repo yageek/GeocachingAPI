@@ -24,7 +24,9 @@ public class APIClient {
     let api = GeocachingAPI.API()
     let GeocachingRequestOAuthURL = "https://staging.geocaching.com/OAuth/oauth.ashx"
     let GeocachingAPIBaseURL = NSURL(string: "https://staging.api.groundspeak.com/Live/V6Beta/geocaching.svc")!
-
+    
+    let keychainWrapper = KeychainWrapper()
+    
     //!MARK: Initialization
     
     /**
@@ -37,6 +39,12 @@ public class APIClient {
     public init(consumerKey:String, consumerSecret:String, callbackURL:NSURL){
         self.oauthSerializer = Serializer(consumerKey: consumerKey, consumerSecret: consumerSecret)
         self.callbackURL = callbackURL
+        
+        
+        if let token = self.keychainWrapper.readOAuthToken() {
+            self.oauthSerializer.tokenSecret = token;
+        }
+
     }
     
     /**
@@ -133,14 +141,16 @@ public class APIClient {
         
        let components = NSURLComponents(URL: url, resolvingAgainstBaseURL: true)
        
-        if let scheme = components?.scheme, host = components?.host {
+        guard let scheme = components?.scheme, host = components?.host  else { return false }
             
-            let returnedURLString = NSURL(string: String(format: "%@://%@", arguments: [scheme, host]))
-            return returnedURLString == self.callbackURL
-        }
+        let returnedURLString = NSURL(string: String(format: "%@://%@", arguments: [scheme, host]))
         
-
+        if returnedURLString != url {
+            return false
+        }
+    
         guard let items = components?.queryItems else { return false }
+        
         var token:String? = nil
         
         for item in items {
@@ -151,9 +161,15 @@ public class APIClient {
             }
         }
         
-        guard token != nil else { return false }
+        guard let tok = token else { return false }
         
-        self.oauthSerializer.accessToken = token
+        self.oauthSerializer.accessToken = tok
+
+        do {
+            try self.keychainWrapper.storeOAuthToken(tok)
+        } catch {
+            print("Could not store token into the keychain. It will be lost after the application quits")
+        }
         
         return true
         

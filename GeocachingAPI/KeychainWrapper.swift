@@ -77,6 +77,7 @@ public class KeychainWrapper: NSObject {
                 (kSecAttrAccessible as String) : (kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly as String),
                 (kSecValueData as String) : data
             ]
+            
             let status = SecItemUpdate(query, updateQuery)
             
             if status == errSecSuccess {
