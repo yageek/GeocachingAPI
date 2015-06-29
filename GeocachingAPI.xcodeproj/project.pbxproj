@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B043FD01B3F4E3C0060E447 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B043FCF1B3F4E3C0060E447 /* KeychainWrapper.swift */; };
 		0B4037821B29ECA70015465B /* GeocachingAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B4037811B29ECA70015465B /* GeocachingAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0B4037991B29ED2B0015465B /* GeocachingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4037981B29ED2B0015465B /* GeocachingClient.swift */; };
 		0B7F30571B3C65E5000DDEB6 /* GeocachingAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F30561B3C65E5000DDEB6 /* GeocachingAPITests.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0B043FCF1B3F4E3C0060E447 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		0B40377C1B29ECA70015465B /* GeocachingAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GeocachingAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B4037801B29ECA70015465B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B4037811B29ECA70015465B /* GeocachingAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeocachingAPI.h; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				0B4037811B29ECA70015465B /* GeocachingAPI.h */,
 				0B40377F1B29ECA70015465B /* Supporting Files */,
 				0B4037981B29ED2B0015465B /* GeocachingClient.swift */,
+				0B043FCF1B3F4E3C0060E447 /* KeychainWrapper.swift */,
 				0B869BAC1B39C682009ACEC0 /* APIEndpoint.swift */,
 				0BD48E881B317669002BC35A /* PlistCredentials.swift */,
 				0B40379D1B29EFB00015465B /* GCOAUTH.plist */,
@@ -247,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B4037991B29ED2B0015465B /* GeocachingClient.swift in Sources */,
+				0B043FD01B3F4E3C0060E447 /* KeychainWrapper.swift in Sources */,
 				0B869BAD1B39C682009ACEC0 /* APIEndpoint.swift in Sources */,
 				0BD48E891B317669002BC35A /* PlistCredentials.swift in Sources */,
 			);

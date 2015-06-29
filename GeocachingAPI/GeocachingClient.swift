@@ -54,6 +54,8 @@ public class APIClient {
         return APIClient(consumerKey: credentials.ConsumerKey, consumerSecret: credentials.ConsumerSecret, callbackURL: credentials.CallbackURL)
     }
     
+    
+    // MARK: Login
     /**
     Get LoginURL
     :param: callback The callback returning the NSURL to log
@@ -156,10 +158,6 @@ public class APIClient {
         return true
         
     }
-    
-    
-    
-    
     
     
 }
