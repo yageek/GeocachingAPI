@@ -27,6 +27,12 @@ public class APIClient {
     
     let keychainWrapper = KeychainWrapper()
     
+   public var connected:Bool {
+        get {
+            return self.oauthSerializer.tokenSecret != nil
+        }
+    }
+    
     //!MARK: Initialization
     
     /**
