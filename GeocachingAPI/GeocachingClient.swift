@@ -149,12 +149,10 @@ public class APIClient {
        
         guard let scheme = components?.scheme, host = components?.host  else { return false }
             
-        let returnedURLString = NSURL(string: String(format: "%@://%@", arguments: [scheme, host]))
-        
-        if returnedURLString != url {
+        if scheme != self.callbackURL.scheme ||  host != self.callbackURL.host {
             return false
         }
-    
+        
         guard let items = components?.queryItems else { return false }
         
         var token:String? = nil
