@@ -11,12 +11,20 @@ import GeocachingAPI
 
 class GeocachingAPITests: XCTestCase {
     
-    func testPlistCredentialLoading() {
+    var client:GeocachingAPI.APIClient!
+    
+    override func setUp() {
         
         let bundlePath = NSBundle(forClass: GeocachingAPITests.self).bundlePath
-        
-        let client = GeocachingAPI.APIClient.clientByLoadingBundleCredentials(bundlePath: bundlePath)
-        XCTAssertNotNil(client)
+        self.client = GeocachingAPI.APIClient.clientByLoadingBundleCredentials(bundlePath: bundlePath)
     }
+    
+    func testInitialValues() {
+        XCTAssertNotNil(client)
+        XCTAssertFalse(client.isConnected)
+    }
+    
+    
+
     
 }

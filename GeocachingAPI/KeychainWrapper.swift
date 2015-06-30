@@ -16,8 +16,8 @@ public class KeychainWrapper: NSObject {
         case StoreFailed
     }
     
-    static let Service = "net.yageek.igeo.keychain";
-    static let OAuthToken = "net.yageek.igeo.keychain.oauthtoken"
+    static let Service = "net.yageek.geocachingapi";
+    static let OAuthToken = "net.yageek.geocachingapi.oauthtoken"
     
     func readOAuthToken() -> String?  {
         
@@ -26,7 +26,7 @@ public class KeychainWrapper: NSObject {
         let query = [
             (kSecClass as String): (kSecClassGenericPassword as String),
             (kSecAttrAccount as String): (KeychainWrapper.OAuthToken as String),
-            (kSecClass as String): (kSecClassGenericPassword as String),
+           
         ]
         
         
@@ -72,7 +72,6 @@ public class KeychainWrapper: NSObject {
             print("Toke successfully stored");
         case errSecDuplicateItem:
             
-            
             let updateQuery = [
                 (kSecAttrAccessible as String) : (kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly as String),
                 (kSecValueData as String) : data
@@ -92,7 +91,5 @@ public class KeychainWrapper: NSObject {
         
 
     }
-    
-
     
 }
