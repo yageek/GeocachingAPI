@@ -21,19 +21,20 @@ public class KeychainWrapper: NSObject {
     
     func readOAuthToken() -> String?  {
         
-       var dataTypeRef :Unmanaged<AnyObject>?
         
         let query = [
             (kSecClass as String): (kSecClassGenericPassword as String),
             (kSecAttrAccount as String): (KeychainWrapper.OAuthToken as String),
+            (kSecReturnData as String): kCFBooleanTrue,
+            (kSecMatchLimit as String) : kSecMatchLimitOne
            
         ]
         
-        
+        var dataTypeRef :Unmanaged<AnyObject>?
         let status = SecItemCopyMatching(query as CFDictionary, &dataTypeRef)
         
         switch(status){
-        case errSecSuccess:
+        case noErr:
             
             if let op = dataTypeRef?.toOpaque() {
                 let retrievedData = Unmanaged<NSData>.fromOpaque(op).takeUnretainedValue()
@@ -57,7 +58,6 @@ public class KeychainWrapper: NSObject {
         let query = [
             (kSecClass as String): (kSecClassGenericPassword as String),
             (kSecAttrAccount as String): (KeychainWrapper.OAuthToken as String),
-            (kSecClass as String): (kSecClassGenericPassword as String),
             (kSecAttrAccessible as String) : (kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly as String),
             (kSecValueData as String) : data
         ]
@@ -68,7 +68,7 @@ public class KeychainWrapper: NSObject {
         
         switch(status){
             
-        case errSecSuccess:
+        case noErr:
             print("Toke successfully stored");
         case errSecDuplicateItem:
             

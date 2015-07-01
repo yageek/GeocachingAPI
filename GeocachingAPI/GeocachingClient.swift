@@ -179,7 +179,13 @@ public class APIClient {
         
     }
     
-    
+    //Mark: Endpoint
+    public func GetUserProfile(callback:(profile:AnyObject) -> Void){
+        
+        
+        
+    }
+
 }
     
     
