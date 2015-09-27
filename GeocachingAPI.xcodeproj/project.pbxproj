@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B043FD01B3F4E3C0060E447 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B043FCF1B3F4E3C0060E447 /* KeychainWrapper.swift */; };
 		0B4037821B29ECA70015465B /* GeocachingAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B4037811B29ECA70015465B /* GeocachingAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0B4037991B29ED2B0015465B /* GeocachingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4037981B29ED2B0015465B /* GeocachingClient.swift */; };
 		0B7F30571B3C65E5000DDEB6 /* GeocachingAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F30561B3C65E5000DDEB6 /* GeocachingAPITests.swift */; };
@@ -21,6 +20,8 @@
 		0B7F30901B3CA6FA000DDEB6 /* SwiftOAuth1a.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B7F307E1B3CA436000DDEB6 /* SwiftOAuth1a.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0B869BAD1B39C682009ACEC0 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B869BAC1B39C682009ACEC0 /* APIEndpoint.swift */; };
 		0BD48E891B317669002BC35A /* PlistCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD48E881B317669002BC35A /* PlistCredentials.swift */; };
+		0BEF60DC1BB7D6C00059BEE1 /* Locksmith.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BEF60DB1BB7D6C00059BEE1 /* Locksmith.framework */; };
+		0BEF60DF1BB7DBA30059BEE1 /* Locksmith.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0BEF60DE1BB7DBA30059BEE1 /* Locksmith.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				0BEF60DF1BB7DBA30059BEE1 /* Locksmith.framework in CopyFiles */,
 				0B7F308E1B3CA6FA000DDEB6 /* Base32.framework in CopyFiles */,
 				0B7F308F1B3CA6FA000DDEB6 /* HMAC.framework in CopyFiles */,
 				0B7F30901B3CA6FA000DDEB6 /* SwiftOAuth1a.framework in CopyFiles */,
@@ -49,7 +51,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0B043FCF1B3F4E3C0060E447 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		0B40377C1B29ECA70015465B /* GeocachingAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GeocachingAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B4037801B29ECA70015465B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B4037811B29ECA70015465B /* GeocachingAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeocachingAPI.h; sourceTree = "<group>"; };
@@ -63,6 +64,9 @@
 		0B7F307E1B3CA436000DDEB6 /* SwiftOAuth1a.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftOAuth1a.framework; path = Carthage/Build/iOS/SwiftOAuth1a.framework; sourceTree = "<group>"; };
 		0B869BAC1B39C682009ACEC0 /* APIEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		0BD48E881B317669002BC35A /* PlistCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistCredentials.swift; sourceTree = "<group>"; };
+		0BEF60D91BB7D6B00059BEE1 /* GeocachingAPI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = GeocachingAPI; sourceTree = "<group>"; };
+		0BEF60DB1BB7D6C00059BEE1 /* Locksmith.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Locksmith.framework; path = Carthage/Build/iOS/Locksmith.framework; sourceTree = "<group>"; };
+		0BEF60DE1BB7DBA30059BEE1 /* Locksmith.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Locksmith.framework; path = Carthage/Build/iOS/Locksmith.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BEF60DC1BB7D6C00059BEE1 /* Locksmith.framework in Frameworks */,
 				0B7F307F1B3CA436000DDEB6 /* Base32.framework in Frameworks */,
 				0B7F30801B3CA436000DDEB6 /* HMAC.framework in Frameworks */,
 				0B7F30811B3CA436000DDEB6 /* SwiftOAuth1a.framework in Frameworks */,
@@ -90,6 +95,9 @@
 		0B4037721B29ECA70015465B = {
 			isa = PBXGroup;
 			children = (
+				0BEF60DE1BB7DBA30059BEE1 /* Locksmith.framework */,
+				0BEF60DB1BB7D6C00059BEE1 /* Locksmith.framework */,
+				0BEF60D91BB7D6B00059BEE1 /* GeocachingAPI */,
 				0B7F30781B3CA35F000DDEB6 /* iOS */,
 				0B40377E1B29ECA70015465B /* GeocachingAPI */,
 				0B7F30551B3C65E5000DDEB6 /* GeocachingAPITests */,
@@ -112,7 +120,6 @@
 				0B4037811B29ECA70015465B /* GeocachingAPI.h */,
 				0B40377F1B29ECA70015465B /* Supporting Files */,
 				0B4037981B29ED2B0015465B /* GeocachingClient.swift */,
-				0B043FCF1B3F4E3C0060E447 /* KeychainWrapper.swift */,
 				0B869BAC1B39C682009ACEC0 /* APIEndpoint.swift */,
 				0BD48E881B317669002BC35A /* PlistCredentials.swift */,
 				0B40379D1B29EFB00015465B /* GCOAUTH.plist */,
@@ -250,7 +257,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B4037991B29ED2B0015465B /* GeocachingClient.swift in Sources */,
-				0B043FD01B3F4E3C0060E447 /* KeychainWrapper.swift in Sources */,
 				0B869BAD1B39C682009ACEC0 /* APIEndpoint.swift in Sources */,
 				0BD48E891B317669002BC35A /* PlistCredentials.swift in Sources */,
 			);
@@ -313,7 +319,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -355,7 +361,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -380,6 +386,7 @@
 				);
 				INFOPLIST_FILE = GeocachingAPI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.yageek.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -404,6 +411,7 @@
 				);
 				INFOPLIST_FILE = GeocachingAPI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.yageek.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

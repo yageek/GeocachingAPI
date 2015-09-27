@@ -8,10 +8,21 @@
 
 import Foundation
 import SwiftOAuth1a
-
+import Locksmith
 // MARK: Client
 public class APIClient {
     
+    struct GeocachingAPICredential : ReadableSecureStorable, CreateableSecureStorable, DeleteableSecureStorable, GenericPasswordSecureStorable {
+        var oauthToken:String
+        
+        let service = "net.yageek.geocachingapi"
+        let account = "geocachingAPILibrary"
+        
+        var data : [String:AnyObject] {
+            return ["token" : oauthToken]
+        }
+        
+    }
     
     public enum GeocachingAPIError : ErrorType {
         case InvalidCallbackURL
@@ -24,8 +35,7 @@ public class APIClient {
     let api = GeocachingAPI.API()
     let GeocachingRequestOAuthURL = "https://staging.geocaching.com/OAuth/oauth.ashx"
     let GeocachingAPIBaseURL = NSURL(string: "https://staging.api.groundspeak.com/Live/V6Beta/geocaching.svc")!
-    
-    let keychainWrapper = KeychainWrapper()
+    var credential = GeocachingAPICredential(oauthToken: "")
     
    public var isConnected:Bool {
         get {
@@ -45,12 +55,14 @@ public class APIClient {
     public init(consumerKey:String, consumerSecret:String, callbackURL:NSURL){
         self.oauthSerializer = Serializer(consumerKey: consumerKey, consumerSecret: consumerSecret)
         self.callbackURL = callbackURL
+        let passwordResult:GenericPasswordSecureStorableResultType? = credential.readFromSecureStore()
         
-        
-        if let token = self.keychainWrapper.readOAuthToken() {
-            self.oauthSerializer.tokenSecret = token;
+        if let token = passwordResult?.data?["token"] as? String {
+            oauthSerializer.tokenSecret = token
         }
+        
 
+      
     }
     
     /**
@@ -70,9 +82,11 @@ public class APIClient {
     
     
     // MARK: Login
-    /**
+    /*!
+    @abstract
     Get LoginURL
-    :param: callback The callback returning the NSURL to log
+    
+    @param callback The callback returning the NSURL to log
     */
     public func LoginURL(callback:(loginURL:NSURL?) -> Void ){
         
@@ -88,6 +102,8 @@ public class APIClient {
             var tokenSecret:String? = nil
             
             do {
+
+
                 reply = try NSURLConnection.sendSynchronousRequest(request!, returningResponse: &response)
                 
                 let httpResponse = response as? NSHTTPURLResponse
@@ -137,11 +153,11 @@ public class APIClient {
             })
         })
     }
-    /**
+    /*!
     Read the token provided by the callback
     
-    :param: url The url of the callback
-    :returns: true if succeed to read the content
+    @param url The url of the callback
+    @returns true if succeed to read the content
     */
     public func readTokenFromCallback(url:NSURL) -> Bool {
         
@@ -168,9 +184,10 @@ public class APIClient {
         guard let tok = token else { return false }
         
         self.oauthSerializer.accessToken = tok
-
+        credential.oauthToken = tok
+        
         do {
-            try self.keychainWrapper.storeOAuthToken(tok)
+            try credential.createInSecureStore()
         } catch {
             print("Could not store token into the keychain. It will be lost after the application quits")
         }
@@ -180,9 +197,36 @@ public class APIClient {
     }
     
     //Mark: Endpoint
-    public func GetUserProfile(callback:(profile:AnyObject) -> Void){
+    public func GetUserProfile(callback:((profile:AnyObject) -> Void)?){
+        
+        let request = NSMutableURLRequest(URL: NSURL(string:"https://staging.api.groundspeak.com/Live/V6Beta/geocaching.svc/GetYourUserProfile")!)
+        
+        request.HTTPMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         
+        let profileOptions = [
+            "ChallengesData" : true,
+            "FavoritePointsData" : true,
+            "GeocacheData" : true,
+            "PublicProfileData": true,
+            "SouvenirData": true,
+            "TrackableData" : true,
+            "EmailData" : true
+        ] as NSDictionary
+
+        let dict = [
+            "AccessToken" : self.oauthSerializer.accessToken!,
+            "ProfileOptions" : profileOptions
+        ] as NSDictionary
+        
+        var data:NSData? = nil
+        do {
+            data = try NSJSONSerialization.dataWithJSONObject(dict, options: NSJSONWritingOptions(rawValue: 0))
+        } catch {
+            print("Could not serialize data:\(error)")
+        }
+        print("Data:\(data)")
         
     }
 

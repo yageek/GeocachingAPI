@@ -1,1 +1,2 @@
 github "yageek/SwiftOAuth1a" "develop"
+github "matthewpalmer/Locksmith"
